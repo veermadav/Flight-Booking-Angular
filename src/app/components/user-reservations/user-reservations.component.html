@@ -1,0 +1,33 @@
+
+<h2 style="color:aliceblue ; text-align: center;font-size: 22px;margin-top: 2%;">Users Reservation</h2><br>
+                <div class="table-responsive" >
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+                        <thead>
+                            <tr>
+                              <th>Seat No</th>
+                              <th>User Name</th>
+                              <th>Flight No</th>
+                              <th>From</th>
+                              <th>To</th>
+                              <th>Arrival Time</th>
+                              <th>Departure Time</th>
+                              <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let mybooking of myBookings">
+                                <td>{{mybooking.seatNo}}</td>
+                                <td>{{mybooking.userName}}</td>
+                                <td>{{mybooking.flightNumber}}</td>
+                                <td>{{mybooking.from}}</td>
+                                <td>{{mybooking.to}}</td>
+                                <td>{{mybooking.arrivalTime}}</td>
+                                <td>{{mybooking.departureTime}}</td>
+                                <td>
+                                      <a style="color: #fff;margin-left: 3%;" class="btn btn-danger" (click)="Reject(mybooking)">Cancel</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+

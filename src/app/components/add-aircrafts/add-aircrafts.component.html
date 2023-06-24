@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<div class="container">
+<div class="content">
+   <div class="text">
+      Add AirCrafts
+   </div>
+  
+   <form [formGroup]="AirCraftDetailsForm" >
+    
+      <div class="field">
+         <div class="input-field" [class.error]="AirCraftDetailsForm.controls['flightNumber'].dirty && AirCraftDetailsForm.hasError('required','flightNumber')">
+            <input type="text" formControlName="flightNumber" placeholder="Flight Number" >
+            <!-- <label>Job Id</label> -->
+         </div>
+      </div>
+      <small *ngIf="AirCraftDetailsForm.controls['flightNumber'].dirty && AirCraftDetailsForm.hasError('required','flightNumber')" class="text-danger">*Flight Number is required!</small>
+      <div class="field">
+        <div class="input-field" [class.error]="AirCraftDetailsForm.controls['from'].dirty && AirCraftDetailsForm.hasError('required','from')">
+           <input type="text" formControlName="from" placeholder="From" />
+           <!-- <label>Job Details</label> -->
+        </div>
+     </div>
+     <small *ngIf="AirCraftDetailsForm.controls['from'].dirty && AirCraftDetailsForm.hasError('required','from')" class="text-danger">*From is required!</small>
+     <div class="field">
+        <div class="input-field" [class.error]="AirCraftDetailsForm.controls['to'].dirty && AirCraftDetailsForm.hasError('required','to')">
+           <input type="text" formControlName="to" placeholder="To" />
+           <!-- <label>Job Details</label> -->
+        </div>
+     </div>
+     <small *ngIf="AirCraftDetailsForm.controls['to'].dirty && AirCraftDetailsForm.hasError('required','to')" class="text-danger">*To is required!</small>
+     <div class="field">
+      <div class="input-field" [class.error]="AirCraftDetailsForm.controls['arrivalTime'].dirty && AirCraftDetailsForm.hasError('required','arrivalTime')">
+        <input #arrivalInput type="text"
+          (focus)="changeInputType(arrivalInput)"
+          (blur)="resetInputType(arrivalInput)"
+          formControlName="arrivalTime" placeholder="Arrival Time" />
+      </div>
+    </div>
+    <small *ngIf="AirCraftDetailsForm.controls['arrivalTime'].dirty && AirCraftDetailsForm.hasError('required','arrivalTime')" class="text-danger">*Arrival Time is required!</small>
+    
+    <div class="field">
+      <div class="input-field" [class.error]="AirCraftDetailsForm.controls['departureTime'].dirty && AirCraftDetailsForm.hasError('required','departureTime')">
+        <input #departureInput type="text"
+          (focus)="changeInputType(departureInput)"
+          (blur)="resetInputType(departureInput)"
+          formControlName="departureTime" placeholder="Departure Time" />
+      </div>
+    </div>
+    <small *ngIf="AirCraftDetailsForm.controls['departureTime'].dirty && AirCraftDetailsForm.hasError('required','departureTime')" class="text-danger">*Departure Time is required!</small>    
+     <button class="button"(click)="onSave()"  type="submit">Add</button>
+ 
+   </form>
+
+</div>
+</div>
+
+

@@ -1,0 +1,32 @@
+<h2 style="color: aliceblue; text-align: center; font-size: 22px; margin-top: 2%;">Air Crafts Info</h2><br>
+<div class="table-responsive">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Flight No</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Arrival Time</th>
+        <th>Departure Time</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let aircraft of AirCraftData; let i=index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ aircraft.flightNumber }}</td>
+        <td contenteditable="true"  (input)="onFromEdit($event)">{{ aircraft.from }}</td>
+        <td contenteditable="true"  (input)="onToEdit($event)">{{ aircraft.to }}</td>
+        <td contenteditable="true"  (input)="onArrivalTimeEdit($event)">{{ aircraft.arrivalTime }}</td>
+        <td contenteditable="true"  (input)="onDepartureTimeEdit($event)">{{ aircraft.departureTime }}</td>
+        <td style="display: flex;">
+          <a class="btn btn-info" *ngIf="role!=='Admin'" (click)="onAccept(aircraft)">Edit</a>
+          <a style="color: #fff; margin-left: 3%;" *ngIf="role!=='Admin'" class="btn btn-danger" (click)="Reject(aircraft)">Delete</a>
+          <a class="btn btn-info" style="margin-left: 3%;" (click)="startBooking(aircraft)">Start Booking</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

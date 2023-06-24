@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+<div class="topnav" id="myTopnav" >
+  <a class="active">Tamu Airways</a>
+  <a class="active1"*ngIf="status==='true'" >{{userName}}</a>
+  <a class="active1" *ngIf="status==='true'"(click)='logout()'>Log Out</a>
+  <a class="active1" *ngIf="status!=='true'"(click)='Login()'>Login</a>
+  <a class="active1" *ngIf="status!=='true'" (click)='signUp()'>Sign-Up</a>
+</div>
+<div class="sidebar close"  >
+  <div class="logo-details">
+    <img src="../../../assets/logo.png" />
+    <span class="logo_name">Menu</span>
+  </div>
+    <ul class="nav-links" *ngIf="status==='true'">
+      <li>
+        <div class="iocn-link">
+          <a >
+            <i class='bx bx-spreadsheet' ></i>
+            <span class="link_name">Log Data</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" >Tickets</a></li>
+          <a class="btn" (click)='addTicket()' >Book MY Ticket</a>
+          <a class="btn" (click)='my_booking_Records()' >My BookingsRecords</a>
+        </ul>
+      </li>
+      
+      <li>
+        <div class="iocn-link" *ngIf="role==='Admin'">
+          <a >
+            <i class='bx bxs-plane-alt'></i>
+            <span class="link_name">AirCrafts</span>
+          </a>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" >AirCrafts</a></li>
+          <li><a class="btn" (click)='addAircraftdetail()' >Add Aircraft</a></li>
+          <li><a class="btn" (click)='manageAircrafts()' >ManageAirCrafts</a></li>
+          <a class="btn" (click)='users_BookingData()' >UserReservations</a>
+        </ul>
+      </li>
+    </ul>
+</div>  
+<div class="table">
+    <router-outlet></router-outlet>
+</div>
+</body>
+
+</html> 

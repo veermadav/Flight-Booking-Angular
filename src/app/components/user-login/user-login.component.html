@@ -1,0 +1,27 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<div class="container">
+   <div class="content">
+         <div class="text">
+            Login
+         </div>
+         <form [formGroup]="loginFormUser">
+            <div class="field">
+               <div class="input-field" [class.error]="loginFormUser.controls['userName'].dirty && loginFormUser.hasError('required','userName')">
+                  <input type="text" formControlName="userName" placeholder="User Name" >
+                  <span class="fas fa-user"></span>
+               </div>
+            </div>
+            <small *ngIf="loginFormUser.controls['userName'].dirty && loginFormUser.hasError('required','userName')" class="text-danger">*User Name is required!</small>
+            <div class="field">
+               <div class="input-field" [class.error]="loginFormUser.controls['usrPassword'].dirty && loginFormUser.hasError('required','usrPassword')">
+                  <input [type]="type" formControlName="usrPassword" placeholder="Password">
+                  <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                  <label>usrPassword</label> 
+               </div>
+            </div>
+            <small *ngIf="loginFormUser.controls['usrPassword'].dirty && loginFormUser.hasError('required','usrPassword')" class="text-danger">*usrPassword is Required!</small>
+            <button class="button"(click)="onLogin()" (keyup.enter)="onLogin()" type="submit">Login</button>
+         </form>
+      </div>
+   </div>

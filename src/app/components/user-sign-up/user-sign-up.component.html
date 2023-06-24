@@ -1,0 +1,57 @@
+<!-- <!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      
+   </head>
+   <body > -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <div class="container">
+    <div class="content">
+       <div class="text">
+          User SignUp
+       </div>
+      
+       <form [formGroup]="SignUpFormUser" >
+        
+         <div class="field">
+             <div class="input-field" [class.error]="SignUpFormUser.controls['userName'].dirty && SignUpFormUser.hasError('required','userName')">
+                <input type="text" formControlName="userName" placeholder="User FullName " >
+                <span class="fas fa-user"></span>
+                <!-- <label>User Name</label> -->
+             </div>
+          </div>
+          <small *ngIf="SignUpFormUser.controls['userName'].dirty && SignUpFormUser.hasError('required','userName')" class="text-danger">*User Name is required!</small>
+          <div class="field">
+             <div class="input-field" [class.error]="SignUpFormUser.controls['usrEmail'].dirty && SignUpFormUser.hasError('required','usrEmail')">
+                <input type="usrEmail" formControlName="usrEmail" placeholder="Email">
+                <span class="fa fa-user p-2"></span>
+                <!-- <label>usrEmail</label> -->
+             </div>
+          </div>
+          <small *ngIf="SignUpFormUser.controls['usrEmail'].dirty && SignUpFormUser.hasError('required','usrEmail')" class="text-danger">*usrEmail is Required!</small>
+          <div class="field">
+             <div class="input-field" [class.error]="SignUpFormUser.controls['usrPhoneNo'].dirty && SignUpFormUser.hasError('required','usrusrPhoneNo')">
+                <input type="text" formControlName="usrPhoneNo" placeholder="Phone No">
+                <span class="fa fa-user p-2"></span>
+                <!-- <label>Phone No</label> -->
+             </div>
+          </div>
+          <small *ngIf="SignUpFormUser.controls['usrPhoneNo'].dirty && SignUpFormUser.hasError('required','usrPhoneNo')" class="text-danger">*Phone No is Required!</small>
+          <div class="field">
+             <div class="input-field" [class.error]="SignUpFormUser.controls['usrPassword'].dirty && SignUpFormUser.hasError('required','usrPassword')">
+                <input [type]="type" formControlName="usrPassword" placeholder="Password">
+                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                <!-- <label>usrPassword</label> -->
+             </div>
+          </div>
+          <small *ngIf="SignUpFormUser.controls['usrPassword'].dirty && SignUpFormUser.hasError('required','usrPassword')" class="text-danger">*usrPassword is Required!</small>
+    
+          <button class="button"(click)="onSignUp()"  type="submit">Add</button>
+     
+       </form>
+    
+    </div>
+ </div>
+ 

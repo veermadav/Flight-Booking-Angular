@@ -1,0 +1,59 @@
+body{
+  overflow: scroll !important;
+}
+.scroll{
+ margin-left: 30%;
+  height: 510px;
+  width:40%;
+  overflow-y: scroll;
+  background: transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+.seat-booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background: linear-gradient(to top,#8a8aa4 50%,#414182 90%)no-repeat;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .seat {
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    border-radius: 4px;
+    background-color: #ddd;
+    cursor: pointer;
+  }
+  .booked {
+    background-color: #ff0000; /* Update with desired color */
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  
+  .seat:hover {
+    background-color: #aaa;
+  }
+  .aisle:hover {
+    background: none;
+  }
+  .aisle {
+    width: 30px;
+    background: none;
+    cursor: context-menu;
+  }
+  
+  @media (max-width: 600px) {
+    .row {
+      flex-wrap: wrap;
+    }
+  }
+  

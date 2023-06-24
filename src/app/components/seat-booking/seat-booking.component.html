@@ -1,0 +1,16 @@
+<div class="scroll">
+<div class="seat-booking">
+    <div class="row">
+      <div class="seat" *ngFor="let seat of seats[0].slice(0, seatsPerRow/2)" [class.booked]="isSeatBooked(seat)" (click)="showConfirmation(seat)">{{ seat }}</div>
+      <div class="seat aisle"></div>
+      <div class="seat" *ngFor="let seat of seats[0].slice(seatsPerRow/2)" [class.booked]="isSeatBooked(seat)" (click)="showConfirmation(seat)">{{ seat }}</div>
+    </div>
+    <div class="aisle"></div>
+    <div class="row" *ngFor="let row of seats.slice(1)">
+      <div class="seat" *ngFor="let seat of row.slice(0, seatsPerRow/2)" [class.booked]="isSeatBooked(seat)" (click)="showConfirmation(seat)">{{ seat }}</div>
+      <div class="seat aisle"></div>
+      <div class="seat" *ngFor="let seat of row.slice(seatsPerRow/2)" [class.booked]="isSeatBooked(seat)" (click)="showConfirmation(seat)">{{ seat }}</div>
+    </div>
+</div>
+</div>
+  
